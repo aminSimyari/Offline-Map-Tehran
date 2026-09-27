@@ -1,0 +1,187 @@
+{
+  "version": 8,
+  "glyphs": "https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf",
+  "sources": {
+    "tehran": {
+      "type": "vector",
+      "url": "pmtiles:///Tehran.pmtiles"
+    }
+  },
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "#202124"
+      }
+    },
+    {
+      "id": "land",
+      "type": "fill",
+      "source": "tehran",
+      "source-layer": "land",
+      "paint": {
+        "fill-color": "#2b2d31"
+      }
+    },
+    {
+      "id": "water",
+      "type": "fill",
+      "source": "tehran",
+      "source-layer": "water_polygons",
+      "paint": {
+        "fill-color": "#174ea6"
+      }
+    },
+    {
+      "id": "water-lines",
+      "type": "line",
+      "source": "tehran",
+      "source-layer": "water_lines",
+      "paint": {
+        "line-color": "#174ea6",
+        "line-width": ["interpolate", ["linear"], ["zoom"], 4, 0.5, 12, 1.5]
+      }
+    },
+    {
+      "id": "boundaries",
+      "type": "line",
+      "source": "tehran",
+      "source-layer": "boundaries",
+      "paint": {
+        "line-color": "#5f6368",
+        "line-width": 1,
+        "line-dasharray": [4, 2]
+      }
+    },
+    {
+      "id": "sites",
+      "type": "fill",
+      "source": "tehran",
+      "source-layer": "sites",
+      "paint": {
+        "fill-color": "#1e7e34",
+        "fill-opacity": 1
+      }
+    },
+    {
+      "id": "buildings",
+      "type": "fill",
+      "source": "tehran",
+      "source-layer": "buildings",
+      "paint": {
+        "fill-color": "#3c4043",
+        "fill-opacity": 0.55
+      }
+    },
+    {
+      "id": "building-outline",
+      "type": "line",
+      "source": "tehran",
+      "source-layer": "buildings",
+      "paint": {
+        "line-color": "#4a4f54",
+        "line-width": 0.4
+      }
+    },
+    {
+      "id": "street-polygons",
+      "type": "fill",
+      "source": "tehran",
+      "source-layer": "street_polygons",
+      "paint": {
+        "fill-color": "#303134"
+      }
+    },
+    {
+      "id": "streets",
+      "type": "line",
+      "source": "tehran",
+      "source-layer": "streets",
+      "paint": {
+        "line-color": "#9aa0a6",
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          10, 0.5,
+          14, 1.5,
+          18, 4
+        ]
+      }
+    },
+    {
+      "id": "bridges",
+      "type": "line",
+      "source": "tehran",
+      "source-layer": "bridges",
+      "paint": {
+        "line-color": "#bdc1c6",
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          12, 1,
+          15, 3,
+          18, 6
+        ]
+      }
+    },
+    {
+      "id": "public-transport",
+      "type": "line",
+      "source": "tehran",
+      "source-layer": "public_transport",
+      "paint": {
+        "line-color": "#f2994a",
+        "line-width": 1.5,
+        "line-opacity": 0.8
+      }
+    },
+    {
+      "id": "street-labels",
+      "type": "symbol",
+      "source": "tehran",
+      "source-layer": "street_labels",
+      "layout": {
+        "text-field": ["get", "name"],
+        "text-font": ["Noto Sans Regular"],
+        "symbol-placement": "line",
+        "text-size": 12,
+        "text-allow-overlap": true
+      },
+      "paint": {
+        "text-color": "#ffffff",
+        "text-halo-color": "#202124",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "place-labels",
+      "type": "symbol",
+      "source": "tehran",
+      "source-layer": "place_labels",
+      "minzoom": 3,
+      "layout": {
+        "text-field": ["get", "name"],
+        "text-font": ["Noto Sans Regular"],
+        "text-size": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          3, 10,
+          10, 14,
+          15, 18
+        ],
+        "text-allow-overlap": false,
+        "text-variable-anchor": ["center"],
+        "text-radial-offset": 0.5
+      },
+      "paint": {
+        "text-color": "#ffffff",
+        "text-halo-color": "#202124",
+        "text-halo-width": 2
+      }
+    }
+  ]
+}
